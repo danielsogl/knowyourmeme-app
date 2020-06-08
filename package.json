@@ -9,7 +9,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "docker:run": "docker run -d -p 4000:80 knowyourmeme-app",
+    "docker:build": "docker build -t knowyourmeme-app ."
   },
   "private": true,
   "dependencies": {
