@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Plugins, StatusBarStyle } from '@capacitor/core';
+import { Plugins, StatusBarStyle, Capacitor } from '@capacitor/core';
 import { Platform } from '@ionic/angular';
 
 const { StatusBar, SplashScreen } = Plugins;
@@ -16,8 +16,12 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      StatusBar.setStyle({ style: StatusBarStyle.Light });
-      SplashScreen.hide();
+      if (Capacitor.isPluginAvailable('StatusBar')) {
+        StatusBar.setStyle({ style: StatusBarStyle.Light });
+      }
+      if (Capacitor.isPluginAvailable('SplashScreen')) {
+        SplashScreen.hide();
+      }
     });
   }
 }
