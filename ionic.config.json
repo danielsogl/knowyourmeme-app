@@ -1,0 +1,7 @@
+{
+  "name": "knowyourmeme-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
