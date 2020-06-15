@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Capacitor, Plugins } from '@capacitor/core';
-import { IonSearchbar } from '@ionic/angular';
+import { IonSearchbar, NavController } from '@ionic/angular';
 
 import { SearchResult } from '../interfaces/api.model';
 import { MemeApiService } from '../services/meme-api/meme-api.service';
@@ -28,7 +28,8 @@ export class HomePage {
   constructor(
     private memeApi: MemeApiService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private navCtrl: NavController
   ) {
     this.activatedRoute.queryParamMap.subscribe((paramMap) => {
       // create search params based on route query params
@@ -57,6 +58,10 @@ export class HomePage {
       },
       queryParamsHandling: 'merge',
     });
+  }
+
+  openDetails(path: string) {
+    this.navCtrl.navigateForward(['details', path]);
   }
 
   async closeKeyboard() {

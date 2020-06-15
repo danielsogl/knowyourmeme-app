@@ -39,7 +39,10 @@
     </ion-item>
   </ion-list>
 
-  <ion-card *ngFor="let meme of (searchResult | async)?.results">
+  <ion-card
+    *ngFor="let meme of (searchResult | async)?.results"
+    (click)="openDetails(meme.url)"
+  >
     <ion-card-header>
       <ion-card-title>{{ meme.name }}</ion-card-title>
     </ion-card-header>
