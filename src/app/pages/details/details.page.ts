@@ -28,6 +28,5 @@ export class DetailsPage implements OnInit {
 
   async loadDetails() {
     this.meme = await this.memeApi.details(this.path);
-    console.log(this.meme)
   }
 }
