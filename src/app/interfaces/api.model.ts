@@ -11,3 +11,10 @@ export interface SearchResult {
   search_time: string;
   results: Result[];
 }
+
+export interface Meme {
+  name: string;
+  about: string;
+  image: string;
+  history: string;
+}

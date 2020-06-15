@@ -3,10 +3,30 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Details</ion-title>
+    <ion-title>{{ meme?.name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-img [src]="meme?.image"></ion-img>
+  </ion-card>
 
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>About</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ meme?.about }}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>History</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ meme?.history }}
+    </ion-card-content>
+  </ion-card>
 </ion-content>

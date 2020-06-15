@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { SearchResult } from 'src/app/interfaces/api.model';
+import { Meme, SearchResult } from 'src/app/interfaces/api.model';
 
 import { environment } from '../../../environments/environment';
 
@@ -20,5 +20,9 @@ export class MemeApiService {
         params: { name: query },
       })
       .toPromise();
+  }
+
+  details(path: string): Promise<Meme> {
+    return this.http.get<Meme>(`${this.endpoint}${path}`).toPromise();
   }
 }
